@@ -4,35 +4,48 @@ using UnityEngine;
 
 public class OnCollision : MonoBehaviour
 {
-    public GameObject collisionResult;
+    public GameObject imageObject;
+    public GameObject floatingText;
 
-    // // Start is called before the first frame update
+    private string currentSkills;
+    private bool isColliding = false;
+
+    // Start is called before the first frame update
     void Start()
     {
-        collisionResult.gameObject.SetActive(false);
+        floatingText.gameObject.SetActive(false);
     }
 
-    // // Update is called once per frame
-    // void Update()
-    // {
-        
-    // }
-
-    void OnCollisionEnter (Collision collision)
+    void OnTriggerEnter (Collider collision)
     {
-        Debug.Log("Enter called");
-        collisionResult.gameObject.SetActive(true);
+        isColliding = true;
+        ShowSkills();
     }
 
-    void OnCollisionStay (Collision collision)
+    void OnTriggerStay (Collider collision)
     {
-        Debug.Log("Collision occuring...");
+        //Debug.Log("Collision occuring...");
     }
 
-    void OnCollisionExit (Collision collision)
+    void OnTriggerExit (Collider collision)
     {
-        Debug.Log("Exit called");
-        collisionResult.gameObject.SetActive(false);
+        isColliding = false;
+        floatingText.gameObject.SetActive(false);
+    }
+
+    void ShowSkills()
+    {
+        floatingText.GetComponentInChildren<TextMesh>().text = currentSkills;
+        floatingText.gameObject.SetActive(true);
+    }
+
+    public void SetSkills(string text)
+    {
+        currentSkills = text;
+        if (isColliding)
+        {
+            ShowSkills();
+        }
     }
 
 }
