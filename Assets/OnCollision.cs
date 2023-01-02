@@ -16,21 +16,26 @@ public class OnCollision : MonoBehaviour
         floatingText.gameObject.SetActive(false);
     }
 
-    void OnTriggerEnter (Collider collision)
+    void OnTriggerEnter (Collider otherObj)
     {
-        isColliding = true;
-        ShowSkills();
+        if ( otherObj.name == "projects_ImageTarget"){
+            isColliding = true;
+            ShowSkills();
+        }
     }
 
-    void OnTriggerStay (Collider collision)
+    void OnTriggerStay (Collider otherObj)
     {
         //Debug.Log("Collision occuring...");
     }
 
-    void OnTriggerExit (Collider collision)
+    void OnTriggerExit (Collider otherObj)
     {
-        isColliding = false;
-        floatingText.gameObject.SetActive(false);
+        if ( otherObj.name == "projects_ImageTarget"){
+            isColliding = false;
+            floatingText.gameObject.SetActive(false);
+        }
+
     }
 
     void ShowSkills()
