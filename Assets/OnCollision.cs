@@ -20,21 +20,28 @@ public class OnCollision : MonoBehaviour
         videoPlayer.Play();
     }
 
-    void OnTriggerEnter (Collider collision)
+    void OnTriggerEnter (Collider otherObj)
     {
-        isColliding = true;
-        ShowSkills();
+        if ( otherObj.name == "Projects"){
+            // Debug.Log("Collision entered " + otherObj.name);
+            isColliding = true;
+            ShowSkills();
+        }
     }
 
-    void OnTriggerStay (Collider collision)
+    void OnTriggerStay (Collider otherObj)
     {
         //Debug.Log("Collision occuring...");
     }
 
-    void OnTriggerExit (Collider collision)
+    void OnTriggerExit (Collider otherObj)
     {
-        isColliding = false;
-        videoPlayer.clip = defaultVideo;
+        if ( otherObj.name == "Projects"){
+            // Debug.Log("Collision entered " + otherObj.name);
+            isColliding = false;
+            videoPlayer.clip = defaultVideo;
+        }
+
     }
 
     private void ShowSkills()
