@@ -23,7 +23,6 @@ public class OnCollision : MonoBehaviour
     void OnTriggerEnter (Collider otherObj)
     {
         if ( otherObj.name == "Projects"){
-            // Debug.Log("Collision entered " + otherObj.name);
             isColliding = true;
             ShowSkills();
         }
@@ -40,6 +39,7 @@ public class OnCollision : MonoBehaviour
             // Debug.Log("Collision entered " + otherObj.name);
             isColliding = false;
             videoPlayer.clip = defaultVideo;
+            videoPlayer.Play();
         }
 
     }
@@ -48,6 +48,8 @@ public class OnCollision : MonoBehaviour
     {
         if (isColliding)
         {
+            // reloald video player
+            videoPlayer.Stop();
             videoPlayer.Play();
         }
     }
