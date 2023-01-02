@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
-    <ImageTarget name="work" size="0.089000 0.050857" />
-    <ImageTarget name="aboutme" size="0.089000 0.050857" />
-    <ImageTarget name="skills" size="0.089000 0.050857" />
-    <ImageTarget name="education" size="0.089000 0.050857" />
-    <ImageTarget name="projects" size="0.089000 0.050857" />
+    <ImageTarget name="work" size="0.120000 0.070007" />
+    <ImageTarget name="education" size="0.120000 0.070007" />
+    <ImageTarget name="skills" size="0.120000 0.070007" />
+    <ImageTarget name="aboutme" size="0.120000 0.070007" />
+    <ImageTarget name="contactinfo" size="0.120000 0.070007" />
+    <ImageTarget name="projects" size="0.120000 0.070007" />
   </Tracking>
 </QCARConfig>
