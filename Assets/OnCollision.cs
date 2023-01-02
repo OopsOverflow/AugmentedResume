@@ -1,19 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Video;
 using UnityEngine;
 
 public class OnCollision : MonoBehaviour
 {
-    public GameObject imageObject;
-    public GameObject floatingText;
-
-    private string currentSkills;
     private bool isColliding = false;
+
+    public GameObject videoPlane;
+    private VideoPlayer videoPlayer;
+    public VideoClip defaultVideo;
+    private VideoClip currentVideo;
 
     // Start is called before the first frame update
     void Start()
     {
-        floatingText.gameObject.SetActive(false);
+        videoPlayer = videoPlane.GetComponent<VideoPlayer>();
+        videoPlayer.clip = defaultVideo;
+        videoPlayer.Play();
     }
 
     void OnTriggerEnter (Collider collision)
@@ -30,20 +34,22 @@ public class OnCollision : MonoBehaviour
     void OnTriggerExit (Collider collision)
     {
         isColliding = false;
-        floatingText.gameObject.SetActive(false);
+        videoPlayer.clip = defaultVideo;
     }
 
-    void ShowSkills()
+    private void ShowSkills()
     {
-        floatingText.GetComponentInChildren<TextMesh>().text = currentSkills;
-        floatingText.gameObject.SetActive(true);
-    }
-
-    public void SetSkills(string text)
-    {
-        currentSkills = text;
         if (isColliding)
         {
+            videoPlayer.Play();
+        }
+    }
+
+    public void SetSkills(VideoClip clip)
+    {
+        if (isColliding)
+        {
+            videoPlayer.clip = clip;
             ShowSkills();
         }
     }
