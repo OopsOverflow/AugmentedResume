@@ -60,6 +60,9 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
+    path: Assets/Scenes/Start_scene.unity
+    guid: 4814bc7736840704494cad893b3925aa
+  - enabled: 1
     path: Assets/Scenes/ColliderTest.unity
     guid: 707826ae5308d4d098027e185b77026c
   m_configObjects: {}
